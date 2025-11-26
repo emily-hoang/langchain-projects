@@ -6,11 +6,12 @@ import { WikipediaTool } from "bee-agent-framework/tools/search/wikipedia";
 import { BeeAgent } from "bee-agent-framework/agents/bee/agent";
 import * as readline from "readline";
 
+// Ensure ollama server is installed, running and accessible via `brew install ollama`, `ollama serve`
 const llm = new OllamaChatModel("llama3.1");
 const memory = new TokenMemory({ llm });
 
 // Initialize PythonTool with BeeAI Code Interpreter
-// Folow instructions at FinancialAdvisor.md
+// Folow instructions at FinancialAdvisor.md to start Python code interpreter server
 const pythonTool = new PythonTool({
   codeInterpreter: {
     url: process.env.CODE_INTERPRETER_URL || "http://localhost:50081"
