@@ -4,8 +4,8 @@ import gradio as gr
 # Ensure ollama server is installed, running and accessible via `brew install ollama`, `ollama serve`
 # and dependencies are installed via `pip install gradio requests`
 
-# A simple web interface for text summarization using DeepSeek model available at http://127.0.0.1:7860
-# DeepSeek API endpoint and headers
+# A simple web interface for text summarization using Ollama model available at http://127.0.0.1:7860
+# Ollama API endpoint
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
 def summarize_text(input_text):
@@ -15,11 +15,8 @@ def summarize_text(input_text):
     prompt = f"Summarize the following text in a concise manner:\n\n{input_text}\n\nSummary:"
     
     payload = {
-        "model": "deepseek-r1",
+        "model": "llama3.1",
         "prompt": prompt,
-        "max_tokens": 150,
-        "temperature": 0.7,
-        "top_p": 0.9,
         "stream": False
     }
     
@@ -27,17 +24,19 @@ def summarize_text(input_text):
         response = requests.post(OLLAMA_URL, json=payload)
         response.raise_for_status()
         data = response.json()
-        summary = data.get("text", "No summary generated.")
+        summary = data.get("response", "No summary generated.")  # Fixed: changed "text" to "response"
         return summary.strip()
     except requests.exceptions.RequestException as e:
         return f"An error occurred: {e}"
-      
+
+# Create Gradio interface
+iface = gr.Interface(
+    fn=summarize_text,
+    inputs=gr.Textbox(lines=10, placeholder="Enter text to summarize here..."),
+    outputs="text",
+    title="Text Summarizer",
+    description="Enter text and get a concise summary using Ollama's llama3.1 model."
+)
+
 if __name__ == "__main__":
-    iface = gr.Interface(
-        fn=summarize_text,
-        inputs=gr.Textbox(lines=10, placeholder="Enter text to summarize here..."),
-        outputs="text",
-        title="Text Summarizer",
-        description="Enter text and get a concise summary using DeepSeek model."
-    )
-iface.launch()
+    iface.launch()
