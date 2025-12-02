@@ -74,15 +74,6 @@ async function chatWithAgent() {
           if (update.key === "thought") {
             console.log(`💭 Agent thinking: ${update.value}`);
           }
-          // if (update.key === "tool_name") {
-          //   console.log(`🔧 Using tool: ${update.value}`);
-          // }
-          // if (update.key === "tool_input") {
-          //   console.log(`📥 Tool input: ${JSON.stringify(update.value, null, 2)}`);
-          // }
-          // if (update.key === "tool_output") {
-          //   console.log(`📤 Tool output received`);
-          // }
         });
         
         emitter.on("error", (error) => {
