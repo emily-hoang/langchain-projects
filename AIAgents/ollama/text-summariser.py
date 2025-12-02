@@ -33,10 +33,12 @@ def summarize_text(input_text):
 iface = gr.Interface(
     fn=summarize_text,
     inputs=gr.Textbox(lines=10, placeholder="Enter text to summarize here..."),
-    outputs="text",
+    outputs=gr.Textbox(lines=10, placeholder="Result"),
     title="Text Summarizer",
     description="Enter text and get a concise summary using Ollama's llama3.1 model."
 )
 
 if __name__ == "__main__":
     iface.launch()
+    
+# Run the script: python text-summariser.py and go to http://127.0.0.1:7860 for Gradio interface

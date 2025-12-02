@@ -28,10 +28,12 @@ def check_grammar(input_text):
 iface = gr.Interface(
     fn=check_grammar,
     inputs=gr.Textbox(lines=10, placeholder="Enter text to check grammar..."),
-    outputs="text",
+    outputs=gr.Textbox(lines=10, placeholder="Result"),
     title="Grammar Checker",
     description="Enter text and get grammar corrections using Ollama's llama3.1 model."
 )
 
 if __name__ == "__main__":
     iface.launch()
+    
+# Run the script: python grammar-checker.py and go to http://127.0.0.1:7860 for Gradio interface
