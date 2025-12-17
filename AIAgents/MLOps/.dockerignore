@@ -1,0 +1,95 @@
+# Version control
+.git
+.hg
+.svn
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+__MACOSX
+
+# Logs and temp
+*.log
+logs/
+tmp/
+temp/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+*.egg
+.build/
+dist/
+build/
+pip-wheel-metadata/
+pip-log.txt
+.Python
+.python-version
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+.site/
+.mypy_cache/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~    
+
+# Data, models, and large artifacts
+data/
+datasets/
+models/
+weights/
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.model
+
+# Secrets and keys
+.env
+.env.*
+*.pem
+*.key
+*.crt
+credentials.json
+
+# Build and package artifacts
+target/
+dist/
+build/
+*.tar.gz
+*.whl
+*.zip
+
+# Docker-related
+.dockerignore
+docker-compose*.yml
+
+# Other caches
+.cache/

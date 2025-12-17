@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-ml-ops-app
+  labels:
+    app: simple-ml-ops-app
+spec:
+  selector:
+    app: simple-ml-ops-app
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80        # The port the Service exposes internally
+      targetPort: 80  # The port your Pods are listening on
+      nodePort: 30007 # Optional: NodePort on the host for external access

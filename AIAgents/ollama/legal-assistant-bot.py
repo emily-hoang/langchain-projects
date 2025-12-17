@@ -1,4 +1,4 @@
-import requests
+import requests00p
 import gradio as gr
 
 # Ensure ollama server is installed, running and accessible via `brew install ollama`, `ollama serve`
@@ -24,7 +24,7 @@ def generate_legal_document(doc_type, party_1, party_2, duration="", salary=""):
     "prompt": prompt,
     "stream": False
   }
-  
+  pi
   response = requests.post(OLLAMA_URL, json=payload)
   
   if response.status_code == 200:
